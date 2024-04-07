@@ -1,4 +1,4 @@
-version: 0.2
+version: 0.1
 phases:
   install:
     runtime-versions:
@@ -6,6 +6,7 @@ phases:
     commands:
       - echo "Installing dependencies..."
       - pip install -r requirements.txt -t lib
+      - echo "Library Redy!"
   build:
     commands:
       - echo "Zipping deployment package..."
@@ -13,6 +14,7 @@ phases:
       - zip -r9 ../deployment_package.zip .
       - cd ..
       - zip -g deployment_package.zip lambda_function.py
+      - echo "Build Completed!"
   post_build:
     commands:
       - echo "Uploading to S3..."
